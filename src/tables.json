@@ -1,0 +1,26 @@
+[
+    {
+        "table": "Fastest 4-seam fastball pitchers",
+        "headers": [
+            "Player Name",
+            "Team",
+            "Velocity"
+        ]
+    },
+    {
+        "table": "Highest spin rate",
+        "headers": [
+            "Player Name",
+            "Team",
+            "Spin Rate"
+        ]
+    },
+    {
+        "table": "Most pitches thrown",
+        "headers": [
+            "Player Name",
+            "Team",
+            "Number of pitches"
+        ]
+    }
+]

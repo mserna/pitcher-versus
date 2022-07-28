@@ -1,0 +1,106 @@
+@import "variables";
+
+body,html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: $WhiteColor;
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/*--- Text color classes ---*/
+.font-14 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.SecondaryColor{
+    color: $secondaryColor;
+}
+
+/*--- padding and margin classes ---*/
+.p-0{
+    padding: 0 !important;
+}
+.p-20{
+    padding: 20px !important;
+}
+.mr-15{
+    margin-right: 15px !important;
+}
+.mb-5{
+    margin-bottom: 5px !important;
+}
+.mb-16{
+    margin-bottom: 16px !important;
+}
+.mb-20{
+    margin-bottom: 20px !important;
+}
+.mb-30{
+    margin-bottom: 30px !important;
+}
+.mb-40{
+    margin-bottom: 40px !important;
+}
+.mb-50{
+    margin-bottom: 50px !important;
+}
+
+/*--- General classes ---*/
+.d-flex {
+    display: flex;
+ 
+    &.space-between{
+        justify-content: space-between;
+    }
+
+    &.align-center{
+        align-items: center;
+    }
+}
+
+.MuiOutlinedInput-root{
+    &.Mui-focused{
+        .MuiOutlinedInput-notchedOutline{
+            border-width: 1px !important;
+        }
+    }
+    &:hover {
+        .MuiOutlinedInput-notchedOutline{
+            border-width: 1px !important;
+        }        
+    }
+}
+
+.MuiButton-contained {
+    box-shadow: none !important;
+}
+
+.MuiAppBar-colorPrimary {
+    color: #fff;
+    background-color: $PrimaryColor;
+}
+
+.navbar_logo{
+    max-height: 10px;
+    width: auto;
+    height: 100%;
+}
+
+.Logout{
+    display: none !important;
+}
+
+@media (min-width:320px) and (max-width: 1279px) {
+    .Logout{
+        display: flex !important;
+    }   
+}

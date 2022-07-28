@@ -1,0 +1,56 @@
+@import "../../theme/variables";
+
+.dashboard_container {
+    min-height: 100vh;
+    width: 100%;
+    background: $PrimaryColor url('../../images/login_bg.png');
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .brand_logo{
+        max-width: 220px;
+        width: 100%;
+        height:auto;
+        margin: 0 auto 45px;
+        display: block;
+    }
+
+    .custom_container{
+        background-color: $WhiteColor;
+        width: 483px;
+        max-width: 90%;
+        padding: 40px 45px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+
+        .MuiOutlinedInput-root{
+            height: 56px;
+        }
+
+        .login_btn{
+            padding: 18px;
+            height: 56px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+}
+
+
+@media (min-width:320px) and (max-width: 640px) {
+
+    .dashboard_container {
+        .custom_container{
+            padding:20px;
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+
+}
