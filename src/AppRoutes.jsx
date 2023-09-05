@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Redirect } from 'react-router-dom';
 import CircularLoader from './components/loader';
 
 import { Home } from './views/home/home';
 import { Dashboard } from './views/dashboard/dashboard';
-import PlayerProfile from './views/profile/profile';
+import { PlayerProfile } from './views/profile/profile';
 
 const AppRoutes = () => {
 
@@ -14,12 +14,12 @@ const AppRoutes = () => {
     <div>
       {isLoading ? <CircularLoader /> : null}
       <Router>
-        <Switch>
+        <Routes>
           <Route path="/" exact component={ Home } />
           <Route path="/home" exact component={ Home } />
           <Route path="/dashboard" exact component={ Dashboard } />
           <Route path="/profile/:id" exact component={ PlayerProfile } />
-        </Switch>
+        </Routes>
       </Router>
     </div>
     );

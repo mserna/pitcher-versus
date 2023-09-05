@@ -1,13 +1,10 @@
 import React from 'react';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useHistory, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import {
   AppBar,
-  Box,
   Toolbar,
   makeStyles,
-  IconButton,
 } from '@material-ui/core';
 import MlbLogo from '../images/mlb_logo.png';
 
@@ -32,7 +29,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const TopBar = ({ className, onMobileNavOpen }) => {
-  const history = useHistory();
+  const history = useNavigate();
   const classes = useStyles();
   return (
     <AppBar className={classes.MuiAppBar} elevation={0}>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import {
   Container,
   Grid,
@@ -25,7 +24,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import Moment from 'moment';
 
 // Internal Imports
 import TopBar from '../../components/topnavbar';
@@ -475,4 +473,4 @@ PlayerProfile.propTypes = {
   counter: PropTypes.string,
 };
 
-export default withRouter(PlayerProfile);
+export { PlayerProfile };
