@@ -42,7 +42,10 @@ const Home = (props) => {
   
   const handleChange = (event, newYear) => {
     // TODO: reload new data with given year
-    setYear(newYear);
+    if (newYear)
+    {
+      setYear(newYear);
+    }
   };
   
   return(
@@ -59,7 +62,7 @@ const Home = (props) => {
         value={year}
         exclusive
         onChange={handleChange}
-        aria-label="Platform"
+        aria-label="Year"
       >
         <ToggleButton value="2020">2020</ToggleButton>
         <ToggleButton disabled="true" value="2021">2021</ToggleButton>
