@@ -1,65 +1,49 @@
-import {React, useState, Component, useEffect} from 'react';
-import Axios from 'axios';
+import {React, useState, useEffect} from 'react';
 import {
-  Container,
-  Button,
-  Label
+  Container
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import csv from 'csvtojson';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import TwoKIcon from '@mui/icons-material/TwoK';
 
 // Internal imports
 import TopBar from '../../components/topnavbar';
 import { Dashboard } from '../dashboard/dashboard';
+import Data2020 from '../../data/data_2020.json';
 
 const Home = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [data, setDataStatus] = useState(false);
+  const [year, setYear] = useState("2020");
+  const file = Data2020;
 
-  const processCSVData = (csv) => {
-    var lines = csv.split('\r');
-    var result = [];
-    var headers = lines[0].split(",");
-    for(var i = 1; i < lines.length; i++){
-      var obj = {};
-      // Reg expression to bypass comma in player_name
-      var currentline = lines[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-      for(var j = 0; j < headers.length; j++){
-        // Check for null values
-        if (currentline[j] == "NULL") {
-          obj[headers[j]] = null;
-        } else {
-          obj[headers[j]] = currentline[j];
-        }
-      }
-      result.push(obj);
+  
+  // TODO: Move all of this process logic into a util class
+  // Fetch data
+  useEffect(() => {
+    // no need to constantly convert json into local storage data if exists
+    if(file && localStorage.getItem("json_data")) {
+      const fileData = JSON.stringify(file);
+      localStorage.setItem("json_data", fileData);
+      setSelectedFile(fileData);
     }
-    return JSON.stringify(result);
-  };
-
-  const fileSelectedHandler = event => {
-    let file = event.target.files[0];
-    const fileReader = new FileReader();
-    if (file) {
-      fileReader.readAsText(file, "ISO-8859-1");
-      fileReader.onload = (event) => {
-        const data = processCSVData(event.target.result);
-        localStorage.setItem("json_data", data);
-        setSelectedFile(data);
-      }
-    }
-  };
-
+  }, []);
+  
   // Persist data
   useEffect(() => {
     let data = localStorage.getItem("json_data");
-    if (data) {
+    if(data) {
       setSelectedFile(data);
       setDataStatus(false);  // Set to true if have user upload once
     } else {
       setDataStatus(false);
     }
   }, []);
+  
+  const handleChange = (event, newYear) => {
+    // TODO: reload new data with given year
+    setYear(newYear);
+  };
   
   return(
     <div>
@@ -68,22 +52,22 @@ const Home = (props) => {
     <br/>
     <br/>
     <Container>
-      <h1>Hello, Welcome</h1>
-      <h1>Please upload the devtest.csv file</h1>
-      <Button
-        variant="contained"
-        component="label"
+      <h1>Welcome! to Pitcher VS.</h1>
+      <h2>Pit 2 flamethrowers up against eachother to compare their stats!</h2>
+      <ToggleButtonGroup
+        color="primary"
+        value={year}
+        exclusive
+        onChange={handleChange}
+        aria-label="Platform"
       >
-        Upload File
-        <input type="file" disabled={data} onChange={(event) => 
-          fileSelectedHandler(event)
-          }></input>
-      </Button>
+        <ToggleButton value="2020">2020</ToggleButton>
+        <ToggleButton disabled="true" value="2021">2021</ToggleButton>
+        <ToggleButton disabled="true" value="2022">2022</ToggleButton>
+        <ToggleButton disabled="true" value="2023">2023</ToggleButton>
+        <ToggleButton disabled="true" value="2024">2024</ToggleButton>
+      </ToggleButtonGroup>
       <Dashboard valueFromParent={selectedFile}></Dashboard>
-    </Container>
-    <br />
-    <br />
-    <Container>
     </Container>
     </div>
   )

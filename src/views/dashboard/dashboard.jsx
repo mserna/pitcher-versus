@@ -56,8 +56,6 @@ const Dashboard = (props) => {
         <div>
         <TopBar />
         <br/>
-        <br/>
-        <br/>
         <h4>Search</h4>
         <SearchBar></SearchBar>
         <br/>

@@ -4,8 +4,6 @@ function createData(name, team, velocity, type) {
     return { name, team, velocity, type };
 }
 
-var pitchers = [];
-
 class PitchingServices extends Component {
 
     fastest4SeamPitchers = (data) => {
@@ -22,9 +20,9 @@ class PitchingServices extends Component {
             let item = entry[1];
 
             // Check if player throws 4 seam
-            if (item.four_seam_speed) {
+            if (item.four_seam_speed && !isNaN(item.four_seam_speed)) {
                 let playerid = item.player_id;
-                let playername = item.player_name_last_first.replace(/['"]+/g, '', '');
+                let playername = item.player_name_last_first;
                 let team = item.team_abbrev;
                 let speed = item.four_seam_speed;
 
@@ -56,9 +54,9 @@ class PitchingServices extends Component {
             let item = entry[1];
 
             // Check if player throws 4 seam
-            if (item[pitch + '_spin']) {
+            if (item[pitch + '_spin'] && !isNaN(item[pitch + '_spin'])) {
                 let playerid = item.player_id;
-                let playername = item.player_name_last_first.replace(/['"]+/g, '', '');
+                let playername = item.player_name_last_first;
                 let team = item.team_abbrev;
                 let spin = item.four_seam_spin;
 
@@ -91,7 +89,7 @@ class PitchingServices extends Component {
 
             if (item.player_name_last_first) {
                 let playerid = item.player_id;
-                let playername = item.player_name_last_first.replace(/['"]+/g, '', '');
+                let playername = item.player_name_last_first;
                 let team = item.team_abbrev;
                 let pitches = item.num_pitches;
 
@@ -124,10 +122,10 @@ class PitchingServices extends Component {
             let item = entry[1];
 
             // Checks if pitcher has pitch
-            if (item[`${pitch}_${metric}`]) {
+            if (item[`${pitch}_${metric}`] && !isNaN(item[`${pitch}_${metric}`])) {
                 // Add to to total
                 total_metric += +item[`${pitch}_${metric}`];
-                let tot_num_pitch_per_player = +item.num_pitches * +item[`${pitch}_pct`];
+                let tot_num_pitch_per_player = + item.num_pitches * + item[`${pitch}_pct`];
                 pitch_total += tot_num_pitch_per_player
                 counter += 1;
             }
@@ -153,7 +151,7 @@ class PitchingServices extends Component {
         for (const entry of _data.entries()) {
             let item = entry[1];
             
-            if(item.num_pitches) {
+            if(item.num_pitches && !isNaN(item.num_pitches)) {
                 pitch_total += +item.num_pitches;
                 counter += 1;
             }
@@ -174,7 +172,7 @@ class PitchingServices extends Component {
         for (const entry of _data.entries()) {
             let item = entry[1];
             
-            if(item.plate_appearances) {
+            if(item.plate_appearances && !isNaN(item.plate_appearances)) {
                 plate_total += +item.plate_appearances;
                 counter += 1;
             }

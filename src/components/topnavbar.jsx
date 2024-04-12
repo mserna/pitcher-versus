@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate, NavLink } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -24,18 +23,18 @@ const useStyles = makeStyles(() => ({
     height: '100%',
   },
   title: {
+    paddingLeft: '5px',
     align: 'right'
   }
 }));
 
 const TopBar = ({ className, onMobileNavOpen }) => {
-  const history = useNavigate();
   const classes = useStyles();
   return (
     <AppBar className={classes.MuiAppBar} elevation={0}>
       <Toolbar>
       <img src={MlbLogo} alt="Logo" className={classes.navbar_logo}/>
-      <h3 className={classes.title}>MLB Pitcher StatCast</h3>
+      <h3 className={classes.title}>Pitcher Versus</h3>
       </Toolbar>
     </AppBar>
   );

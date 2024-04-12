@@ -111,10 +111,9 @@ const PlayerProfile = ({match}) => {
   }, []);
 
   const loadPlayerProfile = () => {
-    let _id = id.replace(/\r\n|\n|\r/gm, "");
-    let player = playerServices.getPlayerById(player_data, _id);
+    let player = playerServices.getPlayerById(player_data, id);
     if (player) {
-      let player_name = player.player_name_last_first.replace(/['"]+/g, '');
+      let player_name = player.player_name_last_first;
       setplayerDetailInfo({
         player_name_last_first: player_name,
         player_id: player.player_id,

@@ -10,8 +10,8 @@ class PlayerServices extends Component {
 
         let _data = JSON.parse(data);
         let player = _data.find((item) => {
-            let player_id = item.player_id.replace(/\r\n|\n|\r/gm, "");
-            if (player_id === id) {
+            let player_id = item.player_id;
+            if (player_id.toString() === id) {
                 return item;
             }
         });
@@ -31,9 +31,9 @@ class PlayerServices extends Component {
             let result = {};
 
             if (item && item.player_name_last_first) {
-                let player_name = item.player_name_last_first.replace(/['"]+/g, '', '');
+                let player_name = item.player_name_last_first;
                 result["player_name"] = player_name;
-                let player_id = item.player_id.replace(/\r\n|\n|\r/gm, "");
+                let player_id = item.player_id;
                 result["player_id"] = player_id;
                 player_list.push(result);
             }
