@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class PlayerServices extends Component {
 
@@ -14,6 +14,8 @@ class PlayerServices extends Component {
             if (player_id.toString() === id) {
                 return item;
             }
+
+            return null;
         });
 
         return player;

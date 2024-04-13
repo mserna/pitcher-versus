@@ -4,7 +4,6 @@ import {
 } from '@material-ui/core';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import TwoKIcon from '@mui/icons-material/TwoK';
 
 // Internal imports
 import TopBar from '../../components/topnavbar';
@@ -13,7 +12,6 @@ import Data2020 from '../../data/data_2020.json';
 
 const Home = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [data, setDataStatus] = useState(false);
   const [year, setYear] = useState("2020");
   const file = Data2020;
 
@@ -34,9 +32,6 @@ const Home = (props) => {
     let data = localStorage.getItem("json_data");
     if(data) {
       setSelectedFile(data);
-      setDataStatus(false);  // Set to true if have user upload once
-    } else {
-      setDataStatus(false);
     }
   }, []);
   

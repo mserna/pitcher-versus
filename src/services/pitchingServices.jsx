@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 function createData(name, team, velocity, type) {
     return { name, team, velocity, type };

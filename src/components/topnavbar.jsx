@@ -5,7 +5,7 @@ import {
   Toolbar,
   makeStyles,
 } from '@material-ui/core';
-import MlbLogo from '../images/mlb_logo.png';
+import MlbLogo from '../resources/mlb_logo.png';
 
 const useStyles = makeStyles(() => ({
   root: {
