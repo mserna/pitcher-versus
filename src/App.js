@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import CircularLoader from './components/loader';
 import { ThemeProvider } from '@material-ui/styles';
@@ -9,6 +9,16 @@ import { PlayerProfile } from './views/profile/profile';
 
 const App = () => {
     const [isLoading] = useState(false);
+
+    // Load data
+    // TODO: Needs to be adjusted using other year data
+    useEffect(()=>{
+        fetch('data_2020.json').then(response => {
+            response.json().then(fileData => {
+                localStorage.setItem("json_data", fileData);
+            })
+        })
+    })
 
     return(
         <ThemeProvider>

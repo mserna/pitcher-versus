@@ -8,24 +8,10 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 // Internal imports
 import TopBar from '../../components/topnavbar';
 import { Dashboard } from '../dashboard/dashboard';
-import Data2020 from '../../data/data_2020.json';
 
 const Home = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [year, setYear] = useState("2020");
-  const file = Data2020;
-
-  
-  // TODO: Move all of this process logic into a util class
-  // Fetch data
-  useEffect(() => {
-    // no need to constantly convert json into local storage data if exists
-    if(file && localStorage.getItem("json_data")) {
-      const fileData = JSON.stringify(file);
-      localStorage.setItem("json_data", fileData);
-      setSelectedFile(fileData);
-    }
-  }, []);
   
   // Persist data
   useEffect(() => {
