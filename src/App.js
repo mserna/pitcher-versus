@@ -10,16 +10,6 @@ import { PlayerProfile } from './views/profile/profile';
 const App = () => {
     const [isLoading] = useState(false);
 
-    // Load data
-    // TODO: Needs to be adjusted using other year data
-    useEffect(()=>{
-        fetch('data_2020.json').then(response => {
-            response.json().then(fileData => {
-                localStorage.setItem("json_data", fileData);
-            })
-        })
-    })
-
     return(
         <ThemeProvider>
             {isLoading ? <CircularLoader /> : null}

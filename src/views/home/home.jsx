@@ -8,11 +8,23 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 // Internal imports
 import TopBar from '../../components/topnavbar';
 import { Dashboard } from '../dashboard/dashboard';
+import Data2020 from '../../data/data_2020.json';
 
 const Home = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [year, setYear] = useState("2020");
   
+  // load data
+  useEffect(() => {
+    if(Data2020) {
+      localStorage.setItem("json_data", JSON.stringify(Data2020));
+    }
+    else
+    {
+      console.error("Unable to load JSON");
+    }
+  }, []);
+
   // Persist data
   useEffect(() => {
     let data = localStorage.getItem("json_data");
