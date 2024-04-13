@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/pitcher-versus/static/css/main.8cbf3823.css",
-    "main.js": "/pitcher-versus/static/js/main.fc656ed9.js",
+    "main.js": "/pitcher-versus/static/js/main.259f5e11.js",
     "static/js/422.4ad2be0b.chunk.js": "/pitcher-versus/static/js/422.4ad2be0b.chunk.js",
     "index.html": "/pitcher-versus/index.html",
     "main.8cbf3823.css.map": "/pitcher-versus/static/css/main.8cbf3823.css.map",
-    "main.fc656ed9.js.map": "/pitcher-versus/static/js/main.fc656ed9.js.map",
+    "main.259f5e11.js.map": "/pitcher-versus/static/js/main.259f5e11.js.map",
     "422.4ad2be0b.chunk.js.map": "/pitcher-versus/static/js/422.4ad2be0b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8cbf3823.css",
-    "static/js/main.fc656ed9.js"
+    "static/js/main.259f5e11.js"
   ]
 }
